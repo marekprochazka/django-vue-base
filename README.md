@@ -30,3 +30,5 @@ dev/prod envs
 base view
 main ts component handler
 DOCKER
+pytest
+ruff
