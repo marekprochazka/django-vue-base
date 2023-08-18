@@ -1,0 +1,3 @@
+https://builtwithdjango.com/blog/basic-django-setup
+https://github.com/MrBin99/django-vite
+https://stackoverflow.com/questions/44089055/django-cannot-find-my-static-files

@@ -1,0 +1,18 @@
+{% load static %}
+{% load django_vite %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% vite_hmr_client %}
+    <script>
+        var django_component_name = 'app';
+    </script>
+    {% vite_asset 'main.ts' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" />
+</body>
+</html>
