@@ -12,20 +12,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+PROJECT_DIR = BASE_DIR.parent.parent
 
+env = environ.Env()
+env.read_env(str(PROJECT_DIR / ".env"))
+
+DEV = env.bool('DEV')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u$&2nxsxwn9rr(17i9zkhyos@t@rw^idmuofa4xr!c0w2!q5_%'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEV
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env.str('DJANGO_ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -75,10 +81,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": env.db("DATABASE_URL"),
 }
 
 
@@ -138,4 +141,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DJANGO_VITE_ASSETS_PATH = os.path.join(BASE_DIR.parent, "frontend/build")
 DJANGO_VITE_MANIFEST_PATH = os.path.join(BASE_DIR.parent, "frontend/build/manifest.json")
 DJANGO_VITE_STATIC_URL_PREFIX = ""
-DJANGO_VITE_DEV_MODE = True
+DJANGO_VITE_DEV_MODE = DEV
