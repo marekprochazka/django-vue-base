@@ -138,4 +138,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DJANGO_VITE_ASSETS_PATH = os.path.join(BASE_DIR.parent, "frontend/build")
 DJANGO_VITE_MANIFEST_PATH = os.path.join(BASE_DIR.parent, "frontend/build/manifest.json")
 DJANGO_VITE_STATIC_URL_PREFIX = ""
-DJANGO_VITE_DEV_MODE = False
+DJANGO_VITE_DEV_MODE = True
