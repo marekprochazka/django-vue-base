@@ -1,0 +1,18 @@
+version: '3.7'
+
+x-build: &x-build
+  args:
+    BUILDKIT_INLINE_CACHE: 1
+
+services:
+  django:
+    build:
+      <<: *x-build
+      context: .
+    expose:
+      - 8000
+
+  django-local:
+    extends: django
+    volumes:
+      - .:/app

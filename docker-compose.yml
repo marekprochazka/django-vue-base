@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  django:
+    extends:
+      file: docker-compose.common.yml
+      service: django-local
+    image: watchdog-django
+    build:
+      target: dev
+      dockerfile: ./compose/local/django/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+      cache_from:
+        - watchdog-django
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+
+
+  vite:
+    container_name: frontend
+    restart: always
+    build:  
+      context: .
+      dockerfile: ./compose/local/vite/Dockerfile
+    image: myproj_frontend_image
+    depends_on:
+      - django
+    ports:
+      - "3000:3000"
+    entrypoint: ./compose/vite/bin/entrypoint
