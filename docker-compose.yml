@@ -18,17 +18,8 @@ services:
       - .env
     ports:
       - "8000:8000"
-
-
-  vite:
-    container_name: frontend
-    restart: always
-    build:  
-      context: .
-      dockerfile: ./compose/local/vite/Dockerfile
-    image: myproj_frontend_image
-    depends_on:
-      - django
-    ports:
       - "3000:3000"
-    entrypoint: ./compose/vite/bin/entrypoint
+    # entrypoint: [/bin/bash, '-c', 'pm2 start "npm --prefix ./service/frontend/ run dev" --name watchDogFE']
+    entrypoint: [/bin/bash, '-c', 'pm2 start "npm --prefix ./services/frontend/ run dev" --name watchDogFE & python -Wall ./services/backend/manage.py runserver_plus 0.0.0.0:8000']
+
+

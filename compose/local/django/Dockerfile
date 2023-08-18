@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
   npm i -g npm@^${NPM_VERSION}
 
 
-ENTRYPOINT ["entrypoint"]
+# ENTRYPOINT ["entrypoint"]
 
 RUN adduser --disabled-password --gecos "" django
 
@@ -92,6 +92,7 @@ RUN poetry install --no-root --no-interaction --no-ansi -vvv
 # Install JS deps
 ENV PATH ./services/frontend/node_modules/.bin:$PATH
 COPY ./services/frontend/package*.json ./
+RUN npm i pm2 -g
 RUN npm ci
 
 
