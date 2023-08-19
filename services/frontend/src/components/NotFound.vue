@@ -8,4 +8,8 @@
 
 <script setup lang="ts">
 
+import type {IBaseDjangoProps} from "@/types/base";
+
+const props = defineProps<IBaseDjangoProps>()
+
 </script>

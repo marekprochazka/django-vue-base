@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import HelloWorld from './components/HelloWorld.vue'
-import NotFound from './components/404.vue'
+import NotFound from './components/NotFound.vue'
 
 // @ts-ignore
 const componentName: string = django_component_name
