@@ -1,34 +1,34 @@
 # django-vue-base
 
-python version: 3.10.6
 
-setup backend
-* run 'manage.py migrations'
-
-
-frontend
-
-vue3 ts pinia(? think about rerenders with SSR)
+## Quickstart 
+* create `.env` file from `.env.example`
+* run docker compose build
+* run docker compose up
+  * the app is served at port 8000   
 
 
-steps
-pyenv local 3.10.6
-poetry init
-poetry add django django-vite djangorestframework
-poetry shell -> django init
-vite init
-edit vite config
-edit settings.py
-urls
-base.html
+## Project description
+
+A 'hacky' solution for SSR vue components that compile entirely into static files.
+
+## Use case
+* Define vue components in your frontend folder
+* import them into main.ts file
+* access them inside django via `BaseVueView`
+
+## Updating dependencies
+* run `docker compose run --rm --user root django bash`
+* for python run `poetry add ...`
+* for frontend go to `services/frontend` and run `npm i ...`
 
 
-todo
+### enjoy
 
-env
-dev/prod envs
-base view
-main ts component handler
-DOCKER
-pytest
-ruff
+--- 
+
+## Comming soon
+* docker.compose.server.yml
+* Usage examples
+
+
