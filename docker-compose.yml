@@ -5,7 +5,7 @@ services:
     extends:
       file: docker-compose.common.yml
       service: django-local
-    image: watchdog-django
+    image: template-django
     build:
       target: dev
       dockerfile: ./compose/local/django/Dockerfile
@@ -13,7 +13,7 @@ services:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
       cache_from:
-        - watchdog-django
+        - template-django
     env_file:
       - .env
     ports:

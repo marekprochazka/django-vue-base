@@ -5,7 +5,7 @@ services:
     extends:
       file: docker-compose.yml
       service: django
-    image: watchdog-django-test
+    image: template-django-test
     working_dir: /app/services/backend
     build:
       dockerfile: ./compose/test/django/Dockerfile
