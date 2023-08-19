@@ -1,2 +1,3 @@
-Define your stores here.
+Define your stores here. 
+
 https://pinia.vuejs.org/
