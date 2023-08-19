@@ -15,6 +15,7 @@ import os
 import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 PROJECT_DIR = BASE_DIR.parent.parent
 
 env = environ.Env()
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_vite',
     'django_extensions',
+    'rest_framework',
+    'user.apps.UserConfig'
 
 ]
 
@@ -63,7 +66,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'core/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,3 +148,5 @@ DJANGO_VITE_MANIFEST_PATH = os.path.join(BASE_DIR.parent, "frontend/build/manife
 print(DEV)
 DJANGO_VITE_STATIC_URL_PREFIX = ""
 DJANGO_VITE_DEV_MODE = DEV
+
+AUTH_USER_MODEL = 'user.User'

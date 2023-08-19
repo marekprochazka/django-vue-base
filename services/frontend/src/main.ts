@@ -2,17 +2,20 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Hello from './components/Hello.vue'
+import HelloWorld from './components/HelloWorld.vue'
 import NotFound from './components/404.vue'
 
 // @ts-ignore
 const componentName: string = django_component_name
+// @ts-ignore
+const props: object = django_component_props
+
 
 const components = {
-    hello: Hello
+    hello: HelloWorld
 }
 // @ts-ignore
-const app = createApp(components[componentName] ?? NotFound)
+const app = createApp(components[componentName] ?? NotFound, props)
 
 app.use(createPinia())
 

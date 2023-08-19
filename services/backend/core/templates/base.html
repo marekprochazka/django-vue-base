@@ -5,7 +5,8 @@
 <head>
     {% vite_hmr_client %}
     <script>
-        var django_component_name = 'hello';
+        var django_component_name = "{{ component_name }}";
+        var django_component_props = {{ component_props | safe }};
     </script>
     {% vite_asset 'main.ts' %}
     <meta charset="UTF-8">
