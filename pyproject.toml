@@ -15,8 +15,18 @@ django-environ = "^0.10.0"
 psycopg2-binary = "^2.9.7"
 django-werkzeug = "^1.0.0"
 django-extensions = "^3.2.3"
+pytest-factoryboy = "^2.5.1"
+factory-boy = "^3.3.0"
+pytest-django = "^4.5.2"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings.test"
+# -- recommended but optional:
+python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
+pythonpath = ["/app"]
+norecursedirs = "docs *.egg-info .git .tox locale compose *.egg dist node_modules venv {arch}"

@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  django:
+    extends:
+      file: docker-compose.yml
+      service: django
+    image: watchdog-django-test
+    entrypoint: [/bin/bash, '-c', 'pytest']
+    working_dir: /app/services/backend
+
+
