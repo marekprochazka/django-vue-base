@@ -8,6 +8,6 @@ set -o nounset
 #env2vars < ./static/js/env.js.template > ./static/js/env.js
 
 # python -Wall manage.py collectstatic_js_reverse
-pm2 start "npm run dev" --name watchDogFE
-python -Wall manage.py migrate
-python -Wall manage.py runserver_plus 0.0.0.0:8000
+pm2 start "npm --prefix ./services/frontend run dev" --name watchDogFE
+python -Wall ./services/backend/manage.py migrate
+python -Wall ./services/backend/manage.py runserver_plus 0.0.0.0:8000

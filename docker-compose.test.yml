@@ -6,7 +6,9 @@ services:
       file: docker-compose.yml
       service: django
     image: watchdog-django-test
-    entrypoint: [/bin/bash, '-c', 'pytest']
     working_dir: /app/services/backend
+    build:
+      dockerfile: ./compose/test/django/Dockerfile
+
 
 

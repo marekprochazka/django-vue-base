@@ -68,12 +68,9 @@ RUN wget https://github.com/facebook/watchman/releases/download/${WATCHMAN_VERSI
     && rm -rf /watchman-*-linux watchman.zip
 
 
-COPY ./compose/local/django/ /usr/local/bin/django-bin
-RUN chmod +x /usr/local/bin/django-bin/* \
-    && find /usr/local/bin/django-bin/* -type f | xargs sed -i 's/\r$//g' \
-    && mv /usr/local/bin/django-bin/* /usr/local/bin \
-    && rmdir /usr/local/bin/django-bin
-    
+COPY ./compose/local/django/bin/start /usr/local/bin/start
+RUN chmod +x /usr/local/bin/start \
+    && find /usr/local/bin/start -type f | xargs sed -i 's/\r$//g'
 
 
 # Install Python deps

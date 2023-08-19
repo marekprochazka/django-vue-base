@@ -19,7 +19,7 @@ services:
     ports:
       - "8000:8000"
       - "3000:3000"
-    # entrypoint: [/bin/bash, '-c', 'pm2 start "npm --prefix ./service/frontend/ run dev" --name watchDogFE']
-    entrypoint: [/bin/bash, '-c', 'pm2 start "npm --prefix ./services/frontend/ run dev" --name watchDogFE & python -Wall ./services/backend/manage.py runserver_plus 0.0.0.0:8000']
+    entrypoint: ['start']
+
 
 
