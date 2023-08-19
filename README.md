@@ -30,5 +30,5 @@ A 'hacky' solution for SSR vue components that compile entirely into static file
 ## Comming soon
 * docker.compose.server.yml
 * Usage examples
-
+* manage metatags for SEO and other stuff through your `BaseVueView` implementations 
 
