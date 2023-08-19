@@ -9,7 +9,6 @@ class User(AbstractUser):
     User model
     """
 
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     x_created = models.DateTimeField(auto_now_add=True, editable=False)
     # add more user related fields here
 
