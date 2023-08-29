@@ -22,6 +22,11 @@ A 'hacky' solution for SSR vue components that compile entirely into static file
 * for python run `poetry add ...`
 * for frontend go to `services/frontend` and run `npm i ...`
 
+## Running django migrations
+* run `docker compose run --rm --user root django bash`
+* `cd services/backend`
+* `python manage.py makemigrations`
+* `python manage.py migrate` 
 
 ### enjoy
 
